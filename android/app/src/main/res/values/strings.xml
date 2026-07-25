@@ -1,0 +1,135 @@
+<resources>
+    <string name="app_name">智考AI</string>
+
+    <!-- 通用 -->
+    <string name="confirm">确定</string>
+    <string name="cancel">取消</string>
+    <string name="back">返回</string>
+    <string name="loading">加载中...</string>
+    <string name="no_data">暂无数据</string>
+    <string name="network_error">网络连接失败，请检查网络</string>
+    <string name="submit">提交</string>
+    <string name="save">保存</string>
+    <string name="delete">删除</string>
+    <string name="edit">编辑</string>
+    <string name="search">搜索</string>
+    <string name="more">更多</string>
+    <string name="all">全部</string>
+    <string name="yes">是</string>
+    <string name="no">否</string>
+
+    <!-- 底部导航 -->
+    <string name="tab_home">首页</string>
+    <string name="tab_exam">考试</string>
+    <string name="tab_community">社区</string>
+    <string name="tab_profile">我的</string>
+
+    <!-- 登录注册 -->
+    <string name="login">登录</string>
+    <string name="register">注册</string>
+    <string name="username">用户名</string>
+    <string name="password">密码</string>
+    <string name="confirm_password">确认密码</string>
+    <string name="phone">手机号</string>
+    <string name="verify_code">验证码</string>
+    <string name="get_verify_code">获取验证码</string>
+    <string name="login_now">立即登录</string>
+    <string name="register_now">立即注册</string>
+    <string name="forget_password">忘记密码？</string>
+    <string name="no_account">还没有账号？</string>
+    <string name="has_account">已有账号？</string>
+    <string name="login_success">登录成功</string>
+    <string name="register_success">注册成功</string>
+    <string name="logout">退出登录</string>
+
+    <!-- 首页 -->
+    <string name="home_title">首页</string>
+    <string name="study_duration">学习时长</string>
+    <string name="today_goal">今日目标</string>
+    <string name="exam_prediction">成绩预测</string>
+    <string name="wrong_questions">错题本</string>
+    <string name="study_reminder">学习提醒</string>
+    <string name="achievement">成就徽章</string>
+    <string name="hot_exam">热门考试</string>
+    <string name="recommend_course">推荐课程</string>
+
+    <!-- 考试 -->
+    <string name="exam_title">考试</string>
+    <string name="subject">科目</string>
+    <string name="exam_paper">试卷</string>
+    <string name="start_exam">开始考试</string>
+    <string name="exam_history">考试记录</string>
+    <string name="collect">收藏</string>
+    <string name="analysis">解析</string>
+
+    <!-- 答题 -->
+    <string name="quiz_title">答题</string>
+    <string name="question_count">共%d题</string>
+    <string name="current_progress">第%d/%d题</string>
+    <string name="last_question">上一题</string>
+    <string name="next_question">下一题</string>
+    <string name="submit_paper">交卷</string>
+    <string name="confirm_submit">确定要交卷吗？</string>
+    <string name="score">得分</string>
+    <string name="correct">正确</string>
+    <string name="wrong">错误</string>
+    <string name="not_answered">未答</string>
+
+    <!-- 社区 -->
+    <string name="community_title">社区</string>
+    <string name="post">发帖</string>
+    <string name="comment">评论</string>
+    <string name="like">点赞</string>
+    <string name="share">分享</string>
+    <string name="hot_post">热门帖子</string>
+    <string name="latest_post">最新帖子</string>
+
+    <!-- 我的 -->
+    <string name="profile_title">我的</string>
+    <string name="personal_info">个人信息</string>
+    <string name="my_collection">我的收藏</string>
+    <string name="my_notes">我的笔记</string>
+    <string name="settings">设置</string>
+    <string name="about_us">关于我们</string>
+    <string name="feedback">意见反馈</string>
+    <string name="check_update">检查更新</string>
+
+    <!-- 成绩预测 -->
+    <string name="prediction_title">成绩预测</string>
+    <string name="prediction_result">预测结果</string>
+    <string name="prediction_score">预测分数</string>
+    <string name="weak_subject">薄弱科目</string>
+    <string name="improvement_suggestion">提升建议</string>
+
+    <!-- 错题本 -->
+    <string name="wrong_title">错题本</string>
+    <string name="wrong_count">共%d道错题</string>
+    <string name="practice_wrong">错题练习</string>
+    <string name="clear_wrong">清空错题</string>
+    <string name="confirm_clear_wrong">确定要清空所有错题吗？</string>
+
+    <!-- 学习提醒 -->
+    <string name="reminder_title">学习提醒</string>
+    <string name="add_reminder">添加提醒</string>
+    <string name="reminder_time">提醒时间</string>
+    <string name="reminder_content">提醒内容</string>
+    <string name="repeat">重复</string>
+    <string name="reminder_enabled">开启提醒</string>
+
+    <!-- 成就 -->
+    <string name="achievement_title">成就徽章</string>
+    <string name="achievement_unlocked">已解锁</string>
+    <string name="achievement_locked">未解锁</string>
+    <string name="achievement_progress">成就进度</string>
+
+    <!-- 引导页 -->
+    <string name="guide_title_1">智能备考</string>
+    <string name="guide_desc_1">AI智能分析，个性化备考方案</string>
+    <string name="guide_title_2">海量题库</string>
+    <string name="guide_desc_2">覆盖各类考试，真题模拟题应有尽有</string>
+    <string name="guide_title_3">成绩预测</string>
+    <string name="guide_desc_3">精准预测考试成绩，查漏补缺</string>
+    <string name="start_use">开始使用</string>
+    <string name="skip">跳过</string>
+
+</resources>

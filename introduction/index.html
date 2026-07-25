@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智考AI - 智能高考预测助手</title>
+    <meta name="description" content="智考AI - 基于人工智能的高考预测助手，智能刷题、错题分析、分数预测，助你决胜高考">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#8b5cf6',
+                        accent: '#a855f7',
+                    },
+                    fontFamily: {
+                        sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+                        <i class="fas fa-brain text-white text-lg"></i>
+                    </div>
+                    <span class="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">智考AI</span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#features" class="text-gray-600 hover:text-primary transition-colors">功能特性</a>
+                    <a href="#screenshots" class="text-gray-600 hover:text-primary transition-colors">App截图</a>
+                    <a href="#ai-prediction" class="text-gray-600 hover:text-primary transition-colors">AI预测</a>
+                    <a href="#testimonials" class="text-gray-600 hover:text-primary transition-colors">用户评价</a>
+                    <a href="#faq" class="text-gray-600 hover:text-primary transition-colors">常见问题</a>
+                    <a href="#download" class="px-5 py-2 bg-gradient-to-r from-primary to-secondary text-white rounded-full font-medium hover:shadow-lg hover:shadow-primary/30 transition-all duration-300">
+                        立即下载
+                    </a>
+                </div>
+                
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors">
+                    <i class="fas fa-bars text-gray-600 text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="mx-4 mt-2 p-4 bg-white/90 backdrop-blur-lg rounded-2xl shadow-lg border border-gray-100">
+                <div class="flex flex-col space-y-3">
+                    <a href="#features" class="text-gray-600 hover:text-primary py-2 transition-colors">功能特性</a>
+                    <a href="#screenshots" class="text-gray-600 hover:text-primary py-2 transition-colors">App截图</a>
+                    <a href="#ai-prediction" class="text-gray-600 hover:text-primary py-2 transition-colors">AI预测</a>
+                    <a href="#testimonials" class="text-gray-600 hover:text-primary py-2 transition-colors">用户评价</a>
+                    <a href="#faq" class="text-gray-600 hover:text-primary py-2 transition-colors">常见问题</a>
+                    <a href="#download" class="mt-2 px-5 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-full font-medium text-center">
+                        立即下载
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center lg:text-left">
+                    <div class="inline-flex items-center px-4 py-2 bg-primary/10 rounded-full mb-6">
+                        <span class="w-2 h-2 bg-primary rounded-full mr-2 animate-pulse"></span>
+                        <span class="text-primary text-sm font-medium">AI智能备考 · 精准预测</span>
+                    </div>
+                    
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                        <span class="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">智考AI</span>
+                        <br>
+                        <span class="text-gray-800">智能高考预测助手</span>
+                    </h1>
+                    
+                    <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-xl mx-auto lg:mx-0">
+                        基于海量高考数据与深度学习算法，智能分析薄弱点、精准预测分数，为每一位考生定制专属备考方案，让努力更有方向。
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10">
+                        <a href="#download" class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white rounded-2xl font-semibold text-lg hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-1 transition-all duration-300">
+                            <i class="fab fa-android mr-3 text-xl"></i>
+                            Android 下载
+                        </a>
+                        <a href="#download" class="inline-flex items-center justify-center px-8 py-4 bg-white text-gray-800 rounded-2xl font-semibold text-lg border-2 border-gray-200 hover:border-primary hover:text-primary hover:-translate-y-1 transition-all duration-300">
+                            <i class="fab fa-apple mr-3 text-xl"></i>
+                            App Store
+                        </a>
+                    </div>
+                    
+                    <div class="grid grid-cols-3 gap-6 max-w-md mx-auto lg:mx-0">
+                        <div class="text-center lg:text-left">
+                            <div class="text-3xl font-bold text-primary stat-number" data-target="500000">0</div>
+                            <div class="text-gray-500 text-sm mt-1">累计用户</div>
+                        </div>
+                        <div class="text-center lg:text-left">
+                            <div class="text-3xl font-bold text-secondary stat-number" data-target="98">0</div>
+                            <div class="text-gray-500 text-sm mt-1">预测准确率%</div>
+                        </div>
+                        <div class="text-center lg:text-left">
+                            <div class="text-3xl font-bold text-accent stat-number" data-target="1000">0</div>
+                            <div class="text-gray-500 text-sm mt-1">万+题库</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative flex justify-center">
+                    <div class="absolute -top-10 -left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl"></div>
+                    <div class="absolute -bottom-10 -right-10 w-72 h-72 bg-secondary/20 rounded-full blur-3xl"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="phone-mockup">
+                            <div class="phone-notch"></div>
+                            <div class="phone-screen bg-gradient-to-b from-primary/5 to-white">
+                                <div class="p-6">
+                                    <div class="flex items-center justify-between mb-6">
+                                        <div>
+                                            <p class="text-gray-500 text-sm">你好，同学 👋</p>
+                                            <h3 class="font-bold text-lg text-gray-800">今日学习</h3>
+                                        </div>
+                                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+                                            <i class="fas fa-user text-white text-sm"></i>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="bg-white rounded-2xl p-4 shadow-sm mb-4">
+                                        <div class="flex items-center justify-between mb-3">
+                                            <span class="text-sm font-medium text-gray-700">学习进度</span>
+                                            <span class="text-sm font-bold text-primary">68%</span>
+                                        </div>
+                                        <div class="w-full bg-gray-100 rounded-full h-2">
+                                            <div class="bg-gradient-to-r from-primary to-secondary h-2 rounded-full" style="width: 68%"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="grid grid-cols-2 gap-3 mb-4">
+                                        <div class="bg-white rounded-xl p-3 shadow-sm">
+                                            <div class="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center mb-2">
+                                                <i class="fas fa-book text-blue-500 text-sm"></i>
+                                            </div>
+                                            <p class="text-xs text-gray-500">已刷题</p>
+                                            <p class="font-bold text-gray-800">1,234</p>
+                                        </div>
+                                        <div class="bg-white rounded-xl p-3 shadow-sm">
+                                            <div class="w-8 h-8 rounded-lg bg-green-100 flex items-center justify-center mb-2">
+                                                <i class="fas fa-chart-line text-green-500 text-sm"></i>
+                                            </div>
+                                            <p class="text-xs text-gray-500">正确率</p>
+                                            <p class="font-bold text-gray-800">85%</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="bg-gradient-to-r from-primary to-secondary rounded-2xl p-4 text-white">
+                                        <div class="flex items-center justify-between mb-2">
+                                            <span class="text-sm opacity-90">AI预测分数</span>
+                                            <i class="fas fa-magic text-sm"></i>
+                                        </div>
+                                        <div class="text-3xl font-bold mb-2">628<span class="text-lg">分</span></div>
+                                        <p class="text-xs opacity-80">较上次提升 +15分</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="py-20 md:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 fade-in">
+                <span class="text-primary font-semibold text-sm uppercase tracking-wider">功能特性</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-5 text-gray-800">
+                    八大核心功能，助力高考冲刺
+                </h2>
+                <p class="text-gray-600 text-lg">
+                    从刷题到预测，从错题到规划，智考AI为你提供全方位的智能备考体验
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="feature-card glass-card rounded-2xl p-6 fade-in">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center mb-5">
+                        <i class="fas fa-brain text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">AI智能出题</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        基于知识图谱和个人薄弱点，智能推荐最适合你的题目，针对性提升效率。
+                    </p>
+                </div>
+                
+                <div class="feature-card glass-card rounded-2xl p-6 fade-in" style="transition-delay: 0.1s">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mb-5">
+                        <i class="fas fa-chart-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">分数预测</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        深度学习算法分析你的答题数据，精准预测高考分数，让努力有目标。
+                    </p>
+                </div>
+                
+                <div class="feature-card glass-card rounded-2xl p-6 fade-in" style="transition-delay: 0.2s">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center mb-5">
+                        <i class="fas fa-book-open text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">海量题库</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        涵盖近十年高考真题、模拟题，全科目全覆盖，题目持续更新中。
+                    </p>
+                </div>
+                
+                <div class="feature-card glass-card rounded-2xl p-6 fade-in" style="transition-delay: 0.3s">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center mb-5">
+                        <i class="fas fa-exclamation-triangle text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">错题本</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        自动收集错题，智能分类归纳，错题重做巩固记忆，不再错第二次。
+                    </p>
+                </div>
+                
+                <div class="feature-card glass-card rounded-2xl p-6 fade-in" style="transition-delay: 0.4s">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center mb-5">
+                        <i class="fas fa-clock text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">学习计划</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        根据备考时间和目标分数，AI自动生成个性化学习计划，科学备考。
+                    </p>
+                </div>
+                
+                <div class="feature-card glass-card rounded-2xl p-6 fade-in" style="transition-delay: 0.5s">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-violet-500 flex items-center justify-center mb-5">
+                        <i class="fas fa-video text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">视频解析</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        难题配有详细视频讲解，名师带你分析解题思路，举一反三。
+                    </p>
+                </div>
+                
+                <div class="feature-card glass-card rounded-2xl p-6 fade-in" style="transition-delay: 0.6s">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-red-500 to-pink-500 flex items-center justify-center mb-5">
+                        <i class="fas fa-trophy text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">模拟考试</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        真实模拟高考环境，计时答题、自动评分，提前适应考试节奏。
+                    </p>
+                </div>
+                
+                <div class="feature-card glass-card rounded-2xl p-6 fade-in" style="transition-delay: 0.7s">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-500 to-blue-600 flex items-center justify-center mb-5">
+                        <i class="fas fa-users text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">学习社区</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        和百万考生一起交流学习心得，分享备考经验，共同进步成长。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="screenshots" class="py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 fade-in">
+                <span class="text-primary font-semibold text-sm uppercase tracking-wider">App截图</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-5 text-gray-800">
+                    精美界面，流畅体验
+                </h2>
+                <p class="text-gray-600 text-lg">
+                    简洁美观的界面设计，让学习成为一种享受
+                </p>
+            </div>
+        </div>
+        
+        <div class="screenshots-container overflow-hidden">
+            <div class="screenshots-track flex space-x-6">
+                <div class="screenshot-item flex-shrink-0">
+                    <div class="phone-mockup-small">
+                        <div class="phone-screen-small bg-gradient-to-b from-blue-50 to-white p-4">
+                            <div class="bg-white rounded-xl p-3 shadow-sm">
+                                <div class="flex items-center mb-3">
+                                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center mr-3">
+                                        <i class="fas fa-home text-white text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-sm text-gray-800">首页</p>
+                                        <p class="text-xs text-gray-500">智能学习推荐</p>
+                                    </div>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="h-2 bg-gray-100 rounded-full w-full"></div>
+                                    <div class="h-2 bg-gray-100 rounded-full w-3/4"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="screenshot-item flex-shrink-0">
+                    <div class="phone-mockup-small">
+                        <div class="phone-screen-small bg-gradient-to-b from-green-50 to-white p-4">
+                            <div class="bg-white rounded-xl p-3 shadow-sm">
+                                <div class="flex items-center mb-3">
+                                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center mr-3">
+                                        <i class="fas fa-book text-white text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-sm text-gray-800">刷题模式</p>
+                                        <p class="text-xs text-gray-500">智能出题练习</p>
+                                    </div>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="h-2 bg-gray-100 rounded-full w-full"></div>
+                                    <div class="h-2 bg-gray-100 rounded-full w-5/6"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="screenshot-item flex-shrink-0">
+                    <div class="phone-mockup-small">
+                        <div class="phone-screen-small bg-gradient-to-b from-purple-50 to-white p-4">
+                            <div class="bg-gradient-to-r from-primary to-secondary rounded-xl p-4 text-white">
+                                <p class="text-sm opacity-90 mb-1">AI预测分数</p>
+                                <p class="text-3xl font-bold">628分</p>
+                                <p class="text-xs opacity-80 mt-1">较上次 +15分</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="screenshot-item flex-shrink-0">
+                    <div class="phone-mockup-small">
+                        <div class="phone-screen-small bg-gradient-to-b from-orange-50 to-white p-4">
+                            <div class="bg-white rounded-xl p-3 shadow-sm">
+                                <div class="flex items-center mb-3">
+                                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center mr-3">
+                                        <i class="fas fa-exclamation-circle text-white text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-sm text-gray-800">错题本</p>
+                                        <p class="text-xs text-gray-500">128道待复习</p>
+                                    </div>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="h-2 bg-gray-100 rounded-full w-full"></div>
+                                    <div class="h-2 bg-gray-100 rounded-full w-2/3"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="screenshot-item flex-shrink-0">
+                    <div class="phone-mockup-small">
+                        <div class="phone-screen-small bg-gradient-to-b from-pink-50 to-white p-4">
+                            <div class="bg-white rounded-xl p-3 shadow-sm">
+                                <div class="flex items-center mb-3">
+                                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center mr-3">
+                                        <i class="fas fa-chart-pie text-white text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-sm text-gray-800">数据分析</p>
+                                        <p class="text-xs text-gray-500">学习情况统计</p>
+                                    </div>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="h-2 bg-gray-100 rounded-full w-full"></div>
+                                    <div class="h-2 bg-gray-100 rounded-full w-4/5"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="screenshot-item flex-shrink-0">
+                    <div class="phone-mockup-small">
+                        <div class="phone-screen-small bg-gradient-to-b from-cyan-50 to-white p-4">
+                            <div class="bg-white rounded-xl p-3 shadow-sm">
+                                <div class="flex items-center mb-3">
+                                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center mr-3">
+                                        <i class="fas fa-video text-white text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-sm text-gray-800">视频课程</p>
+                                        <p class="text-xs text-gray-500">名师精讲解析</p>
+                                    </div>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="h-2 bg-gray-100 rounded-full w-full"></div>
+                                    <div class="h-2 bg-gray-100 rounded-full w-3/4"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="screenshot-item flex-shrink-0">
+                    <div class="phone-mockup-small">
+                        <div class="phone-screen-small bg-gradient-to-b from-blue-50 to-white p-4">
+                            <div class="bg-white rounded-xl p-3 shadow-sm">
+                                <div class="flex items-center mb-3">
+                                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center mr-3">
+                                        <i class="fas fa-home text-white text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-sm text-gray-800">首页</p>
+                                        <p class="text-xs text-gray-500">智能学习推荐</p>
+                                    </div>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="h-2 bg-gray-100 rounded-full w-full"></div>
+                                    <div class="h-2 bg-gray-100 rounded-full w-3/4"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="screenshot-item flex-shrink-0">
+                    <div class="phone-mockup-small">
+                        <div class="phone-screen-small bg-gradient-to-b from-green-50 to-white p-4">
+                            <div class="bg-white rounded-xl p-3 shadow-sm">
+                                <div class="flex items-center mb-3">
+                                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center mr-3">
+                                        <i class="fas fa-book text-white text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-sm text-gray-800">刷题模式</p>
+                                        <p class="text-xs text-gray-500">智能出题练习</p>
+                                    </div>
+                                </div>
+                                <div class="space-y-2">
+                                    <div class="h-2 bg-gray-100 rounded-full w-full"></div>
+                                    <div class="h-2 bg-gray-100 rounded-full w-5/6"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ai-prediction" class="py-20 md:py-28 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1 fade-in">
+                    <span class="text-primary font-semibold text-sm uppercase tracking-wider">AI预测引擎</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-6 text-gray-800">
+                        智能预测，精准定位你的分数
+                    </h2>
+                    <p class="text-gray-600 text-lg mb-8">
+                        基于深度学习算法和千万级考生数据，智考AI能够精准分析你的学习状况，预测高考分数，帮助你找到提分空间。
+                    </p>
+                    
+                    <div class="space-y-5">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 mr-4">
+                                <i class="fas fa-brain text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">深度学习算法</h4>
+                                <p class="text-gray-600 text-sm">采用先进的神经网络模型，持续学习优化预测精度</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0 mr-4">
+                                <i class="fas fa-database text-secondary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">海量数据支撑</h4>
+                                <p class="text-gray-600 text-sm">千万级考生数据、十年高考真题，让预测更有依据</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0 mr-4">
+                                <i class="fas fa-bullseye text-accent"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">98%准确率</h4>
+                                <p class="text-gray-600 text-sm">经过大量真实考生验证，预测分数与实际分数高度吻合</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-xl bg-green-100 flex items-center justify-center flex-shrink-0 mr-4">
+                                <i class="fas fa-lightbulb text-green-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 mb-1">智能提分建议</h4>
+                                <p class="text-gray-600 text-sm">不仅告诉你分数，还告诉你如何提分，给出具体学习建议</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="order-1 lg:order-2 relative flex justify-center fade-in">
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-primary/10 rounded-full blur-3xl"></div>
+                    
+                    <div class="relative z-10 w-full max-w-md">
+                        <div class="glass-card rounded-3xl p-8">
+                            <div class="text-center mb-6">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">AI分数预测</h3>
+                                <p class="text-gray-500 text-sm">基于你的答题数据分析</p>
+                            </div>
+                            
+                            <div class="relative w-48 h-48 mx-auto mb-6">
+                                <svg class="w-full h-full transform -rotate-90">
+                                    <circle cx="96" cy="96" r="80" stroke="#e5e7eb" stroke-width="12" fill="none" />
+                                    <circle cx="96" cy="96" r="80" stroke="url(#gradient)" stroke-width="12" fill="none" 
+                                            stroke-dasharray="502" stroke-dashoffset="100" stroke-linecap="round" />
+                                    <defs>
+                                        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                            <stop offset="0%" style="stop-color:#6366f1" />
+                                            <stop offset="100%" style="stop-color:#a855f7" />
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
+                                    <div class="text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">628</div>
+                                    <div class="text-gray-500 text-sm">预测分数</div>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="flex justify-between text-sm mb-1">
+                                        <span class="text-gray-600">语文</span>
+                                        <span class="font-medium text-gray-800">115/150</span>
+                                    </div>
+                                    <div class="w-full bg-gray-100 rounded-full h-2">
+                                        <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 77%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <div class="flex justify-between text-sm mb-1">
+                                        <span class="text-gray-600">数学</span>
+                                        <span class="font-medium text-gray-800">128/150</span>
+                                    </div>
+                                    <div class="w-full bg-gray-100 rounded-full h-2">
+                                        <div class="bg-gradient-to-r from-primary to-secondary h-2 rounded-full" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <div class="flex justify-between text-sm mb-1">
+                                        <span class="text-gray-600">英语</span>
+                                        <span class="font-medium text-gray-800">120/150</span>
+                                    </div>
+                                    <div class="w-full bg-gray-100 rounded-full h-2">
+                                        <div class="bg-gradient-to-r from-green-500 to-emerald-500 h-2 rounded-full" style="width: 80%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <div class="flex justify-between text-sm mb-1">
+                                        <span class="text-gray-600">理综</span>
+                                        <span class="font-medium text-gray-800">265/300</span>
+                                    </div>
+                                    <div class="w-full bg-gray-100 rounded-full h-2">
+                                        <div class="bg-gradient-to-r from-orange-500 to-amber-500 h-2 rounded-full" style="width: 88%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="py-20 md:py-28 bg-gradient-to-b from-gray-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 fade-in">
+                <span class="text-primary font-semibold text-sm uppercase tracking-wider">用户评价</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-5 text-gray-800">
+                    听听他们怎么说
+                </h2>
+                <p class="text-gray-600 text-lg">
+                    来自真实用户的评价，见证智考AI的力量
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="glass-card rounded-2xl p-6 fade-in">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400 mb-1">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        "用了智考AI三个月，分数提高了80多分！AI预测的分数和我高考实际分数只差10分，太神奇了。强烈推荐给所有高三同学！"
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold mr-4">
+                            张
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-800">张同学</p>
+                            <p class="text-gray-500 text-sm">2024届考生 · 提升85分</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-card rounded-2xl p-6 fade-in" style="transition-delay: 0.1s">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400 mb-1">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        "错题本功能太棒了，自动整理分类，复习起来效率超高。以前总是在同一个地方犯错，现在错题重做几遍就记住了。"
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center text-white font-bold mr-4">
+                            李
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-800">李同学</p>
+                            <p class="text-gray-500 text-sm">高二 · 错题本重度用户</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-card rounded-2xl p-6 fade-in" style="transition-delay: 0.2s">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400 mb-1">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        "AI智能出题真的很智能，总是出我不会的题，针对性很强。不像其他APP，题目太简单或者太难，这个刚刚好。"
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center text-white font-bold mr-4">
+                            王
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-800">王同学</p>
+                            <p class="text-gray-500 text-sm">高三 · 刷题达人</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-card rounded-2xl p-6 fade-in" style="transition-delay: 0.3s">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400 mb-1">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        "作为家长，我很满意这个APP。孩子用了之后学习积极性提高了很多，成绩也稳步上升。学习计划功能让孩子不再盲目刷题。"
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center text-white font-bold mr-4">
+                            陈
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-800">陈女士</p>
+                            <p class="text-gray-500 text-sm">高三学生家长</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-card rounded-2xl p-6 fade-in" style="transition-delay: 0.4s">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400 mb-1">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        "视频解析讲得很清楚，比我们老师讲的还好懂。遇到不会的题看一遍视频就明白了，节省了很多时间。"
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-violet-500 flex items-center justify-center text-white font-bold mr-4">
+                            刘
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-800">刘同学</p>
+                            <p class="text-gray-500 text-sm">高二 · 视频课爱好者</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-card rounded-2xl p-6 fade-in" style="transition-delay: 0.5s">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400 mb-1">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        "模拟考试功能很实用，提前适应考试节奏。数据分析也很详细，能清楚看到自己的薄弱环节，对症下药。"
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-white font-bold mr-4">
+                            赵
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-800">赵同学</p>
+                            <p class="text-gray-500 text-sm">高三 · 模考常客</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-20 md:py-28 bg-white">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <span class="text-primary font-semibold text-sm uppercase tracking-wider">常见问题</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-5 text-gray-800">
+                    你可能想知道的
+                </h2>
+                <p class="text-gray-600 text-lg">
+                    有疑问？看看这里能不能找到答案
+                </p>
+            </div>
+            
+            <div class="space-y-4">
+                <div class="faq-item glass-card rounded-2xl overflow-hidden fade-in">
+                    <button class="faq-question w-full px-6 py-5 flex items-center justify-between text-left">
+                        <span class="font-semibold text-gray-800">智考AI是免费的吗？</span>
+                        <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-5 hidden">
+                        <p class="text-gray-600 leading-relaxed">
+                            智考AI提供免费版本，包含基础刷题、错题本等功能。同时我们也提供会员服务，解锁AI预测、视频解析、模拟考试等高级功能。新用户注册即可享受7天会员免费试用。
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq-item glass-card rounded-2xl overflow-hidden fade-in" style="transition-delay: 0.1s">
+                    <button class="faq-question w-full px-6 py-5 flex items-center justify-between text-left">
+                        <span class="font-semibold text-gray-800">AI分数预测准确吗？</span>
+                        <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-5 hidden">
+                        <p class="text-gray-600 leading-relaxed">
+                            经过大量真实考生验证，智考AI的分数预测准确率达到98%以上。预测基于你的答题数据、历史成绩、知识点掌握情况等多维度分析，越用越准确。建议完成至少5套完整试卷后再查看预测结果。
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq-item glass-card rounded-2xl overflow-hidden fade-in" style="transition-delay: 0.2s">
+                    <button class="faq-question w-full px-6 py-5 flex items-center justify-between text-left">
+                        <span class="font-semibold text-gray-800">题库都包含哪些内容？</span>
+                        <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-5 hidden">
+                        <p class="text-gray-600 leading-relaxed">
+                            智考AI题库涵盖语文、数学、英语、物理、化学、生物、政治、历史、地理等全部高考科目。包含近十年高考真题、各地模拟题、名校月考题等，题目总量超过100万道，并且持续更新中。
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq-item glass-card rounded-2xl overflow-hidden fade-in" style="transition-delay: 0.3s">
+                    <button class="faq-question w-full px-6 py-5 flex items-center justify-between text-left">
+                        <span class="font-semibold text-gray-800">支持哪些设备使用？</span>
+                        <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-5 hidden">
+                        <p class="text-gray-600 leading-relaxed">
+                            智考AI目前支持Android手机和平板，iOS版本正在开发中，敬请期待。同时我们也提供网页版，可以在电脑上使用。学习数据多端同步，随时随地都能学习。
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq-item glass-card rounded-2xl overflow-hidden fade-in" style="transition-delay: 0.4s">
+                    <button class="faq-question w-full px-6 py-5 flex items-center justify-between text-left">
+                        <span class="font-semibold text-gray-800">我的学习数据安全吗？</span>
+                        <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-5 hidden">
+                        <p class="text-gray-600 leading-relaxed">
+                            我们非常重视用户隐私和数据安全。所有用户数据都经过加密存储，严格按照国家相关法律法规保护用户隐私。我们承诺不会向任何第三方出售或泄露用户个人信息。
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq-item glass-card rounded-2xl overflow-hidden fade-in" style="transition-delay: 0.5s">
+                    <button class="faq-question w-full px-6 py-5 flex items-center justify-between text-left">
+                        <span class="font-semibold text-gray-800">如何联系客服？</span>
+                        <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-5 hidden">
+                        <p class="text-gray-600 leading-relaxed">
+                            您可以通过APP内的"我的-帮助与反馈"联系我们的客服团队，也可以发送邮件至 support@zhikaoai.com。客服工作时间为每天9:00-22:00，我们会尽快回复您的问题。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="download" class="py-20 md:py-28 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-primary via-secondary to-accent"></div>
+        <div class="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-white/10 rounded-full translate-x-1/2 translate-y-1/2"></div>
+        
+        <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="fade-in">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">
+                    立即下载智考AI
+                </h2>
+                <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
+                    开启你的智能备考之旅，让AI助你一臂之力，决胜高考！
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-6 justify-center mb-12">
+                    <a href="#" class="inline-flex items-center justify-center px-8 py-5 bg-white text-gray-800 rounded-2xl font-semibold text-lg hover:bg-gray-50 hover:-translate-y-1 transition-all duration-300 shadow-xl">
+                        <i class="fab fa-android mr-4 text-2xl text-green-500"></i>
+                        <div class="text-left">
+                            <div class="text-xs text-gray-500">下载 Android 版</div>
+                            <div class="font-bold">APK 直接下载</div>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="inline-flex items-center justify-center px-8 py-5 bg-white/10 backdrop-blur-sm text-white rounded-2xl font-semibold text-lg border-2 border-white/30 hover:bg-white/20 hover:-translate-y-1 transition-all duration-300">
+                        <i class="fab fa-apple mr-4 text-2xl"></i>
+                        <div class="text-left">
+                            <div class="text-xs text-white/70">即将上线</div>
+                            <div class="font-bold">App Store</div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="flex flex-wrap justify-center gap-8 text-white/80 text-sm">
+                    <div class="flex items-center">
+                        <i class="fas fa-shield-alt mr-2"></i>
+                        <span>安全无毒</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-bolt mr-2"></i>
+                        <span>极速下载</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-gift mr-2"></i>
+                        <span>注册送7天会员</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-headset mr-2"></i>
+                        <span>7×24小时客服</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-gray-400 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-5">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+                            <i class="fas fa-brain text-white text-lg"></i>
+                        </div>
+                        <span class="text-xl font-bold text-white">智考AI</span>
+                    </div>
+                    <p class="text-sm leading-relaxed mb-5">
+                        智能高考预测助手，基于AI技术为每一位考生提供个性化备考方案，助力百万学子圆梦大学。
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-weixin text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-weibo text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-qq text-white"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-5">产品功能</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#features" class="hover:text-primary transition-colors">AI智能出题</a></li>
+                        <li><a href="#features" class="hover:text-primary transition-colors">分数预测</a></li>
+                        <li><a href="#features" class="hover:text-primary transition-colors">海量题库</a></li>
+                        <li><a href="#features" class="hover:text-primary transition-colors">错题本</a></li>
+                        <li><a href="#features" class="hover:text-primary transition-colors">视频解析</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-5">关于我们</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-primary transition-colors">公司介绍</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">联系我们</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">加入我们</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">隐私政策</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">用户协议</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-5">联系方式</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope w-5 text-primary"></i>
+                            <span>support@zhikaoai.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone w-5 text-primary"></i>
+                            <span>400-888-8888</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt w-5 text-primary mt-0.5"></i>
+                            <span>北京市海淀区中关村科技园</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm">
+                <p>&copy; 2024 智考AI. All rights reserved.</p>
+                <p class="mt-3 md:mt-0">
+                    <a href="#" class="hover:text-primary transition-colors">京ICP备12345678号</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
