@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智考AI - 源码下载</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 50px 40px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+        .logo {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #6366f1;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+        .info-box {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+        }
+        .info-item:last-child { border-bottom: none; }
+        .info-item .label { color: #888; }
+        .info-item .value { color: #333; font-weight: 500; }
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            color: white;
+            text-decoration: none;
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            margin: 20px 0;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+        }
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
+        }
+        .features {
+            text-align: left;
+            margin: 20px 0;
+        }
+        .features li {
+            list-style: none;
+            padding: 6px 0;
+            color: #555;
+            font-size: 14px;
+        }
+        .features li::before {
+            content: "✓ ";
+            color: #10b981;
+            font-weight: bold;
+        }
+        .footer {
+            margin-top: 20px;
+            color: #999;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">📚</div>
+        <h1>智考AI - 完整源码</h1>
+        <p class="subtitle">智能高考预测助手 | AI驱动的高考备考平台</p>
+        
+        <div class="info-box">
+            <div class="info-item">
+                <span class="label">文件名</span>
+                <span class="value">zhikao-ai-source.zip</span>
+            </div>
+            <div class="info-item">
+                <span class="label">文件大小</span>
+                <span class="value">295 KB</span>
+            </div>
+            <div class="info-item">
+                <span class="label">文件数量</span>
+                <span class="value">263 个文件</span>
+            </div>
+            <div class="info-item">
+                <span class="label">版本</span>
+                <span class="value">v1.0.0</span>
+            </div>
+        </div>
+
+        <ul class="features">
+            <li>PHP后端 (ThinkPHP 8.x)</li>
+            <li>Android App (Java)</li>
+            <li>管理后台 (HTML SPA)</li>
+            <li>App介绍页面</li>
+            <li>数据库SQL脚本 (23张表)</li>
+            <li>部署运维脚本</li>
+            <li>完整文档</li>
+        </ul>
+
+        <a href="/zhikao-ai-source.zip" download class="download-btn">
+            ⬇ 下载完整源码
+        </a>
+
+        <div class="footer">
+            MIT License | 智考AI © 2024
+        </div>
+    </div>
+</body>
+</html>
