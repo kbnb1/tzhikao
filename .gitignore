@@ -1,0 +1,55 @@
+# ==============================================
+# 智考AI项目 .gitignore
+# ==============================================
+
+# ---- 后端PHP (ThinkPHP) ----
+backend/runtime/
+backend/vendor/
+backend/.env
+backend.env.example
+backend/public/uploads/
+backend/public/static/
+backend/extend/
+
+# ---- Android ----
+android/.gradle/
+android/build/
+android/local.properties
+android/.idea/
+android/*.iml
+android/app/build/
+android/app/release/
+android/app/debug/
+android/captures/
+android/gradle.properties
+android/.externalNativeBuild
+android/.cxx
+
+# ---- 编辑器 ----
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ---- 日志 ----
+*.log
+logs/
+
+# ---- 临时文件 ----
+*.tmp
+*.temp
+*.bak
+*.back
+
+# ---- 环境配置 ----
+.env.local
+.env.*.local
+
+# ---- 备份 ----
+*.sql.bak
+*.tar.gz
+*.zip
+backup/
